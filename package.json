@@ -2,6 +2,15 @@
     "name": "ps-react-brollins90",
     "version": "0.1.0",
     "private": true,
+    "scripts": {
+        "build": "node scripts/build.js",
+        "gen:docs":"node scripts/generateComponentData.js",
+        "gen:docs-watch":"npm run gen:docs -- --watch",
+        "prestart": "npm run gen:docs",
+        "start": "npm-run-all --parallel start:docs gen:docs-watch",
+        "start:docs": "node scripts/start.js",
+        "test": "node scripts/test.js --env=jsdom"
+    },
     "dependencies": {
         "autoprefixer": "7.1.1",
         "babel-core": "6.25.0",
@@ -47,11 +56,6 @@
         "chokidar": "1.6.1",
         "npm-run-all": "4.0.2",
         "react-docgen": "2.14.0"
-    },
-    "scripts": {
-        "start": "node scripts/start.js",
-        "build": "node scripts/build.js",
-        "test": "node scripts/test.js --env=jsdom"
     },
     "jest": {
         "collectCoverageFrom": [
