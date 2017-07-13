@@ -10,15 +10,15 @@ const Navigation = ({ components }) => {
                         <li key={name}>
                             <a href={`#${name}`}>{name}</a>
                         </li>
-                    );
+                    )
                 })
             }
         </ul>
-    );
+    )
 }
 
 Navigation.propTypes = {
-    components: PropTypes.array.isRequired,
+    components: PropTypes.array.isRequired
 };
 
 export default Navigation;

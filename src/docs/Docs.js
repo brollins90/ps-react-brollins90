@@ -7,14 +7,14 @@ export default class Docs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            route: window.location.hash.substr(1),
+            route: window.location.hash.substr(1)
         };
     }
 
     componentDidMount() {
         window.addEventListener('hashchange', () => {
-            this.setState({ route: window.location.hash.substr(1) });
-        });
+            this.setState({ route: window.location.hash.substr(1) })
+        })
     }
 
     render() {
@@ -23,9 +23,9 @@ export default class Docs extends React.Component {
 
         return (
             <div>
-                <Navigation components={componentData.map(x => x.name)} />
+                <Navigation components={componentData.map(component => component.name)} />
                 <ComponentPage component={component} />
             </div>
-        );
+        )
     }
 }

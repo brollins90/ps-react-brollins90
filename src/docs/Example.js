@@ -29,7 +29,7 @@ class Example extends React.Component {
                 <p>
                     <a href="" onClick={this.toggleCode}>
                         {showCode ? "Hide" : "Show"} Code
-                    </a>
+          </a>
                 </p>
 
                 {showCode && <CodeExample>{code}</CodeExample>}
