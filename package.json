@@ -1,7 +1,25 @@
 {
     "name": "ps-react-brollins90",
     "version": "0.1.0",
-    "private": true,
+    "main": "./lib/index.js",
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "author": {
+        "name": "Blake Rollins",
+        "email": "brollins90@gmail.com",
+        "url": "http://blakerollins.com/"
+    },
+    "files": [
+        "lib"
+    ],
+    "keywords": [
+        "components",
+        "react",
+        "react-component",
+        "toolkit",
+        "pluralsight"
+    ],
     "homepage": "http://brollins90.github.io/ps-react-brollins90/",
     "scripts": {
         "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
@@ -13,13 +31,20 @@
         "gen:docs-watch": "npm run gen:docs -- --watch",
         "prebuild:lib": "rimraf lib",
         "predeploy:docs": "npm run build:docs",
+        "prepublish": "npm run build:lib",
         "prestart": "npm run gen:docs",
         "start": "npm-run-all --parallel start:docs gen:docs-watch",
         "start:docs": "node scripts/start.js",
         "test": "node scripts/test.js --env=jsdom"
     },
     "dependencies": {
+        "react": "15.6.1",
+        "react-dom": "15.6.1",
+        "styled-components": "1.4.5"
+    },
+    "devDependencies": {
         "autoprefixer": "7.1.2",
+        "babel-cli": "6.24.1",
         "babel-core": "6.25.0",
         "babel-eslint": "7.2.3",
         "babel-jest": "20.0.3",
@@ -28,8 +53,12 @@
         "babel-runtime": "6.23.0",
         "case-sensitive-paths-webpack-plugin": "2.1.1",
         "chalk": "1.1.3",
+        "chokidar": "1.7.0",
+        "cpx": "1.5.0",
+        "cross-env": "5.0.1",
         "css-loader": "0.28.4",
         "dotenv": "4.0.0",
+        "enzyme": "2.9.1",
         "eslint": "3.19.0",
         "eslint-config-react-app": "1.0.5",
         "eslint-loader": "1.9.0",
@@ -40,40 +69,30 @@
         "extract-text-webpack-plugin": "2.1.2",
         "file-loader": "0.11.2",
         "fs-extra": "3.0.1",
+        "gh-pages": "0.12.0",
         "highlight.js": "9.12.0",
         "html-webpack-plugin": "2.29.0",
         "jest": "20.0.4",
+        "jest-cli": "20.0.4",
+        "npm-run-all": "4.0.2",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "3.0.0",
         "postcss-loader": "2.0.6",
         "promise": "7.1.1",
-        "react": "15.6.1",
+        "prop-types": "15.5.10",
+        "react-addons-test-utils": "15.6.0",
         "react-dev-utils": "3.0.2",
-        "react-dom": "15.6.1",
+        "react-docgen": "2.16.0",
         "react-error-overlay": "1.0.9",
+        "react-test-renderer": "15.6.1",
+        "rimraf": "2.6.1",
         "style-loader": "0.18.2",
-        "styled-components": "1.4.5",
         "sw-precache-webpack-plugin": "0.11.4",
         "url-loader": "0.5.9",
         "webpack": "2.6.1",
         "webpack-dev-server": "2.5.1",
         "webpack-manifest-plugin": "1.1.2",
         "whatwg-fetch": "2.0.3"
-    },
-    "devDependencies": {
-        "babel-cli": "6.24.1",
-        "chokidar": "1.7.0",
-        "cpx": "1.5.0",
-        "cross-env": "5.0.1",
-        "enzyme": "2.9.1",
-        "gh-pages": "0.12.0",
-        "jest-cli": "20.0.4",
-        "npm-run-all": "4.0.2",
-        "prop-types": "15.5.10",
-        "react-addons-test-utils": "15.6.0",
-        "react-docgen": "2.16.0",
-        "react-test-renderer": "15.6.1",
-        "rimraf": "2.6.1"
     },
     "jest": {
         "collectCoverageFrom": [
