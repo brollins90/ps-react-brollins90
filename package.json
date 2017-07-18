@@ -2,12 +2,16 @@
     "name": "ps-react-brollins90",
     "version": "0.1.0",
     "private": true,
-    "homepage" : "http://brollins90.github.io/ps-react-brollins90/",
+    "homepage": "http://brollins90.github.io/ps-react-brollins90/",
     "scripts": {
+        "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
+        "build:css": "cpx \"./src/components/**/*.css\" ./lib",
         "build:docs": "node scripts/build.js",
+        "build:lib": "npm run build:commonjs && npm run build:css",
         "deploy:docs": "gh-pages -d build",
         "gen:docs": "node scripts/generateComponentData.js",
         "gen:docs-watch": "npm run gen:docs -- --watch",
+        "prebuild:lib": "rimraf lib",
         "predeploy:docs": "npm run build:docs",
         "prestart": "npm run gen:docs",
         "start": "npm-run-all --parallel start:docs gen:docs-watch",
@@ -57,15 +61,19 @@
         "whatwg-fetch": "2.0.3"
     },
     "devDependencies": {
+        "babel-cli": "6.24.1",
         "chokidar": "1.7.0",
+        "cpx": "1.5.0",
+        "cross-env": "5.0.1",
         "enzyme": "2.9.1",
-        "gh-pages": "^0.12.0",
+        "gh-pages": "0.12.0",
         "jest-cli": "20.0.4",
         "npm-run-all": "4.0.2",
         "prop-types": "15.5.10",
         "react-addons-test-utils": "15.6.0",
         "react-docgen": "2.16.0",
-        "react-test-renderer": "15.6.1"
+        "react-test-renderer": "15.6.1",
+        "rimraf": "2.6.1"
     },
     "jest": {
         "collectCoverageFrom": [
